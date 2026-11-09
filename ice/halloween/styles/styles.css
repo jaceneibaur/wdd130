@@ -1,0 +1,649 @@
+/* Add your CSS here to style your halloween page */
+/* =========================================
+   HALLOWEEN: CHAOTIC PURPLE NIGHTMARE
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Special+Elite&display=swap');
+
+/* Color palette:
+   Deep Night:    #10051F
+   Dark Purple:   #240838
+   Electric Purple: #8B2EFF
+   Pumpkin Orange: #FF6B1A
+   Ghost White:   #F5E9FF
+   Poison Green:  #B6FF4A
+*/
+
+:root {
+    --night: #10051F;
+    --purple: #240838;
+    --electric: #8B2EFF;
+    --orange: #FF6B1A;
+    --ghost: #F5E9FF;
+    --green: #B6FF4A;
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 35px 15px;
+    color: var(--ghost);
+    font-family: 'Special Elite', monospace;
+    background-color: var(--night);
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 800'%3E%3Cg fill='%230b0415' stroke='%233b1857' stroke-width='2'%3E%3Cpath d='M180 190 Q205 155 235 180 Q260 145 290 175 L270 205 L300 220 L260 215 Q235 250 210 215 L170 225 L190 200Z'/%3E%3Cpath d='M610 125 Q635 95 665 120 Q690 88 720 115 L700 145 L730 160 L690 155 Q665 185 640 155 L600 165 L620 140Z'/%3E%3Cpath d='M1030 210 Q1055 180 1085 205 Q1110 172 1140 200 L1120 230 L1150 245 L1110 240 Q1085 270 1060 240 L1020 250 L1040 225Z'/%3E%3C/g%3E%3C/svg%3E"),
+        radial-gradient(ellipse at 15% 15%, #59158B 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 35%, #301050 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 90%, #6B1C38 0%, transparent 35%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* Subtle spooky atmosphere */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+
+    background-image:
+        radial-gradient(circle, #ffffff12 1px, transparent 1px);
+
+    background-size: 25px 25px;
+    opacity: 0.4;
+}
+
+/* ---------- MAIN WRAPPER ---------- */
+
+#wrapper {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    isolation: isolate;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+header {
+    margin: 0 auto 70px;
+    padding: 18px 25px;
+    max-width: 850px;
+
+    background: linear-gradient(110deg,
+            #32104C,
+            #180925 60%,
+            #42104C);
+
+    border: 2px solid var(--electric);
+    border-radius: 5px 35px 5px 35px;
+
+    box-shadow:
+        0 0 15px #8B2EFF80,
+        8px 8px 0 #FF6B1A;
+
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+}
+
+header:hover {
+    transform: rotate(1deg) scale(1.02);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    color: var(--ghost);
+    font-family: 'Creepster', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+
+    padding: 8px 15px;
+    cursor: default;
+
+    border-radius: 50% 15% 50% 15%;
+    transition: all 0.3s ease;
+}
+
+nav li:nth-child(even) {
+    transform: rotate(4deg);
+}
+
+nav li:nth-child(odd) {
+    transform: rotate(-4deg);
+}
+
+nav li:hover {
+    color: var(--night);
+    background: var(--orange);
+
+    box-shadow: 0 0 20px #FF6B1A;
+
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* ---------- MAIN CONTENT ---------- */
+
+main {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "title title"
+        "image image"
+        "pumpkins bats"
+        "skeletons skeletons";
+
+    gap: 35px;
+    align-items: center;
+}
+
+/* ---------- MAIN TITLE ---------- */
+
+h1 {
+
+    grid-area: title;
+
+    margin: 0 auto 10px;
+
+    padding: 20px 35px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    font-family: 'Nosifer', cursive;
+
+    font-size: clamp(2.5rem, 7vw, 6.5rem);
+
+    line-height: 1.3;
+
+    letter-spacing: 4px;
+
+    color: #FF6B1A;
+
+    text-shadow:
+
+        4px 4px 0 #64104E,
+
+        7px 7px 0 #10051F,
+
+        0 0 10px #FF6B1A,
+
+        0 0 25px #FF6B1A,
+
+        0 0 50px #8B2EFF;
+
+    transform: rotate(-3deg);
+
+    position: relative;
+
+    z-index: 1;
+
+    animation: spookyPulse 1.2s ease-in-out infinite;
+
+}
+
+/* Fast floating and pulsating animation */
+
+@keyframes spookyPulse {
+
+    0%,
+    100% {
+
+        transform: translateY(0) rotate(-3deg) scale(1);
+
+        text-shadow:
+
+            4px 4px 0 #64104E,
+
+            7px 7px 0 #10051F,
+
+            0 0 10px #FF6B1A,
+
+            0 0 25px #FF6B1A,
+
+            0 0 50px #8B2EFF;
+
+    }
+
+    25% {
+
+        transform: translateY(-8px) rotate(2deg) scale(1.04);
+
+    }
+
+    50% {
+
+        transform: translateY(3px) rotate(-2deg) scale(1.09);
+
+        text-shadow:
+
+            4px 4px 0 #64104E,
+
+            7px 7px 0 #10051F,
+
+            0 0 15px #FF6B1A,
+
+            0 0 35px #FF6B1A,
+
+            0 0 65px #8B2EFF;
+
+    }
+
+    75% {
+
+        transform: translateY(-5px) rotate(3deg) scale(1.03);
+
+    }
+
+}
+
+/* ---------- HALLOWEEN IMAGE ---------- */
+
+main>img {
+    grid-area: image;
+
+    display: block;
+    width: min(100%, 700px);
+    max-height: 430px;
+    object-fit: cover;
+
+    margin: 10px auto 45px;
+
+    /* Give the image an unusual, jagged silhouette */
+    border-radius: 48% 52% 38% 62% / 48% 35% 65% 52%;
+
+    border: 5px solid var(--orange);
+
+    outline: 3px dashed var(--electric);
+    outline-offset: 10px;
+
+    box-shadow:
+        0 0 25px #FF6B1A90,
+        0 0 60px #8B2EFF80,
+        15px 15px 0 #4A176B;
+
+    transform: rotate(2deg);
+
+    transition:
+        transform 0.5s ease,
+        border-radius 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+main>img:hover {
+    transform: rotate(-2deg) scale(1.03);
+
+    border-radius: 20px 60px 20px 60px;
+
+    box-shadow:
+        0 0 35px #FF6B1A,
+        0 0 80px #8B2EFF;
+}
+
+/* ---------- INFORMATION CARDS ---------- */
+
+section {
+    position: relative;
+    padding: 30px;
+
+    background: linear-gradient(145deg,
+            #321047,
+            #1B0A2B 70%,
+            #291039);
+
+    border: 2px solid var(--electric);
+
+    box-shadow:
+        8px 8px 0 #10051F,
+        10px 10px 0 var(--orange),
+        0 0 20px #8B2EFF30;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Make every text card a different shape */
+
+section:nth-of-type(1) {
+    grid-area: pumpkins;
+
+    border-radius: 5px 45px 5px 45px;
+
+    transform: rotate(-2deg);
+
+    border-left: 8px solid var(--orange);
+}
+
+section:nth-of-type(2) {
+    grid-area: bats;
+
+    border-radius: 45px 5px 45px 5px;
+
+    transform: rotate(2deg);
+
+    border-right: 8px solid var(--green);
+}
+
+section:nth-of-type(3) {
+    grid-area: skeletons;
+
+    width: 80%;
+    justify-self: center;
+
+    border-radius: 50px 5px 50px 5px;
+
+    transform: rotate(-1deg);
+
+    border-top: 5px solid var(--orange);
+}
+
+/* Card hover effects */
+
+section:hover {
+    transform: translateY(-10px) rotate(0deg) scale(1.02);
+
+    box-shadow:
+        0 0 25px #8B2EFF80,
+        10px 10px 0 var(--orange);
+
+    background: linear-gradient(145deg,
+            #42145D,
+            #220D35);
+}
+
+/* ---------- SECTION HEADINGS ---------- */
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-family: 'Creepster', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 2px;
+
+    color: var(--orange);
+
+    text-shadow:
+        3px 3px 0 #5C174F,
+        0 0 15px #FF6B1A50;
+
+    transform: rotate(-2deg);
+}
+
+section:nth-of-type(2) h2 {
+    color: var(--green);
+
+    text-shadow:
+        3px 3px 0 #3D2054,
+        0 0 15px #B6FF4A50;
+
+    transform: rotate(2deg);
+}
+
+section:nth-of-type(3) h2 {
+    color: #D9A7FF;
+}
+
+/* ---------- PARAGRAPH TEXT ---------- */
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+
+    color: #E8DDF2;
+
+    margin-bottom: 0;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    margin-top: 85px;
+    padding: 30px 20px;
+
+    text-align: center;
+
+    font-family: 'Creepster', cursive;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+
+    color: var(--ghost);
+
+    background: linear-gradient(90deg,
+            transparent,
+            #4C1769,
+            #291039,
+            #4C1769,
+            transparent);
+
+    border-top: 2px dashed var(--orange);
+
+    text-shadow:
+        0 0 10px var(--electric),
+        0 0 20px var(--electric);
+
+    transform: rotate(1deg);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 700px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    header {
+        margin-bottom: 45px;
+        padding: 15px;
+    }
+
+    nav ul {
+        gap: 8px;
+    }
+
+    nav li {
+        font-size: 1.3rem;
+        padding: 8px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "title"
+            "image"
+            "pumpkins"
+            "bats"
+            "skeletons";
+
+        gap: 30px;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+        padding: 10px;
+    }
+
+    main>img {
+        max-height: 320px;
+        margin-bottom: 20px;
+    }
+
+    section:nth-of-type(3) {
+        width: 95%;
+    }
+
+    section {
+        padding: 25px;
+    }
+
+    footer {
+        margin-top: 55px;
+        font-size: 1.4rem;
+    }
+}
+
+/* ---------- REDUCED MOTION ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================================
+   DETAILED HAUNTED FOREST + FOREST FLOOR
+   ========================================= */
+
+/* Forest floor follows the bottom of the scene */
+body::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 25vh;
+    min-height: 150px;
+    pointer-events: none;
+    z-index: 0;
+
+    background:
+        /* Fog rolling across the ground */
+        radial-gradient(ellipse at 20% 15%, #b6ff4a22 0 4%, transparent 18%),
+        radial-gradient(ellipse at 70% 25%, #d9a7ff24 0 5%, transparent 20%),
+
+        /* Grass blades */
+        repeating-linear-gradient(78deg,
+            transparent 0 18px,
+            #180a27 19px 21px,
+            transparent 22px 42px),
+
+        /* Fallen leaves */
+        radial-gradient(ellipse at 18% 72%, #ff6b1a 0 3px, transparent 4px),
+        radial-gradient(ellipse at 35% 54%, #8b2eff 0 3px, transparent 4px),
+        radial-gradient(ellipse at 68% 78%, #ff6b1a 0 4px, transparent 5px),
+        radial-gradient(ellipse at 86% 62%, #b6ff4a 0 3px, transparent 4px),
+
+        /* Uneven forest floor */
+        linear-gradient(170deg,
+            transparent 0 18%,
+            #160824 19% 32%,
+            #0c0617 33% 100%);
+
+    border-top: 4px solid #3b1857;
+    box-shadow:
+        0 -12px 25px #8b2eff35,
+        inset 0 18px 20px #10051f;
+}
+
+/* Extra ground mist */
+body::before {
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 25% 85%, #b6ff4a18 0 8%, transparent 30%),
+        radial-gradient(ellipse at 75% 90%, #8b2eff22 0 10%, transparent 32%),
+        radial-gradient(circle, #ffffff12 1px, transparent 1px);
+    background-size: auto, auto, 25px 25px;
+}
+
+/* Detailed tree silhouettes */
+#wrapper::before,
+#wrapper::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 12vh;
+    width: 190px;
+    pointer-events: none;
+    z-index: 0;
+
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 100% 100%;
+
+    opacity: 0.92;
+    filter:
+        drop-shadow(0 0 8px #8b2eff66) drop-shadow(0 12px 10px #10051f);
+}
+
+/* Left tree */
+#wrapper::before {
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 760'%3E%3Cg stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%231a0929' stroke='%23501d70' stroke-width='4' d='M18 760 Q40 625 31 520 Q23 420 48 330 Q65 270 48 190 Q35 115 57 15 L75 0 L74 120 Q91 185 80 250 Q105 215 126 158 L157 110 L137 185 L102 280 Q91 315 116 330 L170 270 L185 225 L178 310 L132 365 Q104 390 98 460 Q95 570 126 760Z'/%3E%3Cpath fill='none' stroke='%23722f91' stroke-width='5' d='M61 690 Q70 580 57 470 Q52 390 72 315 M73 304 Q55 235 65 145 M82 298 Q112 267 138 204 M98 370 Q135 360 165 305 M61 425 Q38 390 20 335'/%3E%3Cpath fill='%2310071b' stroke='%233b1857' stroke-width='3' d='M49 470 Q66 447 82 466 Q84 496 62 504 Q43 493 49 470Z M53 475 Q66 466 75 477'/%3E%3Cpath fill='none' stroke='%2310071b' stroke-width='7' d='M31 760 Q24 711 2 679 M62 760 Q43 715 38 675 M115 760 Q143 710 177 690'/%3E%3Cpath fill='%231a0929' stroke='%23501d70' stroke-width='3' d='M58 190 Q26 160 11 108 L20 155 L45 208Z M77 150 Q105 112 117 59 L106 137 L83 177Z M101 280 Q146 245 177 204 L150 267 L112 305Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Right tree */
+#wrapper::after {
+    right: 0;
+    transform: scaleX(-1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 760'%3E%3Cg stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath fill='%231a0929' stroke='%23501d70' stroke-width='4' d='M18 760 Q40 625 31 520 Q23 420 48 330 Q65 270 48 190 Q35 115 57 15 L75 0 L74 120 Q91 185 80 250 Q105 215 126 158 L157 110 L137 185 L102 280 Q91 315 116 330 L170 270 L185 225 L178 310 L132 365 Q104 390 98 460 Q95 570 126 760Z'/%3E%3Cpath fill='none' stroke='%23722f91' stroke-width='5' d='M61 690 Q70 580 57 470 Q52 390 72 315 M73 304 Q55 235 65 145 M82 298 Q112 267 138 204 M98 370 Q135 360 165 305 M61 425 Q38 390 20 335'/%3E%3Cpath fill='%2310071b' stroke='%233b1857' stroke-width='3' d='M49 470 Q66 447 82 466 Q84 496 62 504 Q43 493 49 470Z M53 475 Q66 466 75 477'/%3E%3Cpath fill='none' stroke='%2310071b' stroke-width='7' d='M31 760 Q24 711 2 679 M62 760 Q43 715 38 675 M115 760 Q143 710 177 690'/%3E%3Cpath fill='%231a0929' stroke='%23501d70' stroke-width='3' d='M58 190 Q26 160 11 108 L20 155 L45 208Z M77 150 Q105 112 117 59 L106 137 L83 177Z M101 280 Q146 245 177 204 L150 267 L112 305Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Ensure content stays above the forest decorations */
+#wrapper,
+header,
+main,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Shrink decorations on smaller screens */
+@media (max-width: 1000px) {
+
+    #wrapper::before,
+    #wrapper::after {
+        width: 110px;
+        opacity: 0.6;
+    }
+
+    body::after {
+        height: 22vh;
+    }
+}
+
+@media (max-width: 700px) {
+
+    #wrapper::before,
+    #wrapper::after {
+        width: 55px;
+        opacity: 0.35;
+    }
+
+    body::after {
+        height: 18vh;
+        min-height: 110px;
+    }
+}
